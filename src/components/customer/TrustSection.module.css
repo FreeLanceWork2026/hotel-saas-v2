@@ -1,0 +1,140 @@
+/* ============================================================
+   TrustSection — Premium dark trust/social-proof section
+   ============================================================ */
+
+.trust {
+  background: var(--color-bg-muted);
+  border-top: 1px solid var(--color-bg-border);
+  border-bottom: 1px solid var(--color-bg-border);
+  padding-block: var(--space-4xl);
+}
+
+.header {
+  margin-bottom: var(--space-3xl);
+}
+
+/* ── Trust Cards ─────────────────────────────────────────── */
+.grid {
+  gap: var(--space-lg);
+}
+
+.card {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms var(--ease-smooth),
+              border-color 250ms var(--ease-smooth),
+              box-shadow 250ms var(--ease-smooth);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Icon circle */
+.iconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* Prominent stat figure */
+.stat {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-xs);
+}
+
+.cardTitle {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: var(--space-xs);
+}
+
+.cardDesc {
+  line-height: 1.65;
+}
+
+/* ── Stats Bar ───────────────────────────────────────────── */
+.statsBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: var(--space-3xl);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-bg-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: var(--space-xl) var(--space-3xl);
+  flex: 1;
+  border-right: 1px solid var(--color-bg-border);
+  position: relative;
+}
+
+.statItem:last-child {
+  border-right: none;
+}
+
+.statBarIcon {
+  color: var(--color-brand-500);
+  margin-bottom: 0.25rem;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statBarLabel {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .statsBar {
+    flex-direction: column;
+  }
+
+  .statItem {
+    border-right: none;
+    border-bottom: 1px solid var(--color-bg-border);
+    width: 100%;
+    padding: var(--space-lg);
+  }
+
+  .statItem:last-child {
+    border-bottom: none;
+  }
+}

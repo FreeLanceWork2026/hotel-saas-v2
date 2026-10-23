@@ -1,0 +1,11 @@
+/* Employees page — layout only */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .container { grid-template-columns: 1fr; }
+}

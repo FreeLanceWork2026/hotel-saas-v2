@@ -1,0 +1,31 @@
+/* Printable bill — plain black on white, also on screen */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  color: #111;
+  min-height: 100dvh;
+  font-size: 0.95rem;
+}
+.noPrint { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+.head { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 2px solid #111; padding-bottom: 1rem; }
+.head h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+.meta { text-align: right; }
+.meta strong { font-size: 1.25rem; letter-spacing: 0.1em; }
+.guest { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.5rem; margin: 1.25rem 0; }
+.guest span { display: block; font-size: 0.75rem; color: #555; text-transform: uppercase; letter-spacing: 0.05em; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { padding: 0.5rem 0.4rem; border-bottom: 1px solid #ddd; text-align: left; }
+.table th:nth-child(n+2), .table td:nth-child(n+2) { text-align: right; white-space: nowrap; }
+.table tfoot td { font-weight: 600; }
+.table tfoot td:first-child { text-align: right; }
+.payRow td { font-weight: 400; color: #444; }
+.balance td { font-size: 1.1rem; font-weight: 800; border-top: 2px solid #111; border-bottom: none; }
+.note { margin-top: 1rem; font-style: italic; }
+.foot { margin-top: 2.5rem; text-align: center; color: #555; }
+
+@media print {
+  .noPrint { display: none; }
+  .page { padding: 0; }
+}

@@ -1,0 +1,111 @@
+/* ── Backdrop ───────────────────────────────────────────────── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fade-in 0.2s ease both;
+}
+
+/* ── Modal card ─────────────────────────────────────────────── */
+.modal {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-bg-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+/* ── Type accent borders ────────────────────────────────────── */
+.error   { border-top: 3px solid var(--color-red-400); }
+.success { border-top: 3px solid var(--color-green-400); }
+.warning { border-top: 3px solid var(--color-brand-400); }
+.info    { border-top: 3px solid #60a5fa; }
+
+/* ── Icon bubble ────────────────────────────────────────────── */
+.iconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.error   .iconWrap { background: rgba(224, 82, 82, 0.12); }
+.success .iconWrap { background: rgba(90, 158, 111, 0.12); }
+.warning .iconWrap { background: rgba(228, 168, 64, 0.12); }
+.info    .iconWrap { background: rgba(96, 165, 250, 0.12); }
+
+.icon {
+  line-height: 1;
+  display: block;
+}
+
+/* ── Text ───────────────────────────────────────────────────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.message {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ── Confirm button ─────────────────────────────────────────── */
+.confirmBtn {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  transition: background 200ms ease, transform 150ms ease, box-shadow 200ms ease;
+  background: var(--color-brand-500);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(200, 137, 30, 0.3);
+}
+
+.confirmBtn:hover {
+  background: var(--color-brand-400);
+  box-shadow: 0 6px 24px rgba(200, 137, 30, 0.45);
+  transform: translateY(-1px);
+}
+
+.confirmBtn:active {
+  transform: translateY(0);
+}
+
+/* ── Keyframes ──────────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

@@ -1,0 +1,206 @@
+{
+  "common": {
+    "appName": "Entoto Haven",
+    "tagline": "Fresh Food. Real Flavour.",
+    "loading": "Loading...",
+    "error": "Something went wrong. Please try again.",
+    "notFound": "Page not found.",
+    "backHome": "Back to Home",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "view": "View",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "print": "Print",
+    "share": "Share",
+    "copy": "Copy",
+    "copiedLink": "Link copied!",
+    "currency": "ETB",
+    "currencySymbol": "ETB",
+    "phoneNumber": "+251 91 234 5678",
+    "whatsapp": "Chat on WhatsApp",
+    "address": "Bole Road, Addis Ababa, Ethiopia",
+    "businessHours": "Mon-Sun: 7AM - 10PM",
+    "social": {
+      "telegram": "Telegram",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    }
+  },
+  "nav": {
+    "rooms": "Rooms",
+    "home": "Home",
+    "shop": "Menu",
+    "howItsMade": "Our Story",
+    "about": "About",
+    "contact": "Contact",
+    "cart": "Cart",
+    "cartItems": "{count} items",
+    "language": "Language",
+    "adminLogin": "Admin Login",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "dashboard": "Dashboard",
+    "kiosk": "Kiosk",
+    "myAccount": "My account",
+    "roleAdmin": "Admin",
+    "roleEmployee": "Employee",
+    "roleCustomer": "Customer"
+  },
+  "home": {
+    "hero": {
+      "badge": "Fresh & Made to Order",
+      "title": "Real Food, Real Flavour",
+      "subtitle": "From sizzling plates to refreshing drinks - every dish made fresh to order. Dine in, take away, or delivered to your door.",
+      "ctaShop": "View Menu",
+      "ctaHow": "Our Story",
+      "freshBadge": "Freshly prepared every order"
+    },
+    "featured": {
+      "badge": "Customer Favourites",
+      "title": "Most Loved Dishes",
+      "subtitle": "Fresh, made-to-order food that keeps our customers coming back.",
+      "viewAll": "View Full Menu"
+    },
+    "trust": {
+      "title": "Why Choose Entoto Haven",
+      "natural": {
+        "title": "Pure Ingredients",
+        "desc": "100% natural and freshly sourced ingredients in every dish."
+      },
+      "fresh": {
+        "title": "Kitchen Fresh",
+        "desc": "Prepared fresh to order, preserving original flavour and nutrition."
+      },
+      "local": {
+        "title": "Locally Sourced",
+        "desc": "Supporting Ethiopian farmers with authentic local produce."
+      },
+      "quality": {
+        "title": "Small Batch Quality",
+        "desc": "Cooked in small batches with meticulous attention to taste."
+      }
+    },
+    "process": {
+      "badge": "How It Works",
+      "title": "From Our Kitchen to You",
+      "subtitle": "A seamless experience from selection to serving.",
+      "learnMore": "Learn More"
+    },
+    "cta": {
+      "title": "Ready to Experience Authentic Flavour?",
+      "subtitle": "Browse our menu or book a room today. We look forward to welcoming you.",
+      "button": "Explore Menu"
+    }
+  },
+  "shop": {
+    "title": "Our Menu",
+    "subtitle": "Fresh food and drinks made to order.",
+    "outOfStock": "Out of Stock",
+    "sortLabel": "Sort",
+    "sortNewest": "Popular",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "noProducts": "Nothing on the menu right now. Check back soon!"
+  },
+  "product": {
+    "addToCart": "Add to Order",
+    "inStock": "Available",
+    "lowStock": "Almost Gone",
+    "outOfStock": "Sold Out",
+    "size": "Size",
+    "price": "Price"
+  },
+  "cart": {
+    "title": "Your Order",
+    "empty": "Your order is empty",
+    "emptySubtitle": "Browse our menu and add something delicious!",
+    "checkout": "Place Order",
+    "total": "Total",
+    "deliveryFee": "Delivery Fee",
+    "freeDelivery": "Free delivery",
+    "subtotal": "Subtotal",
+    "remove": "Remove",
+    "quantity": "Qty"
+  },
+  "howItsMade": {
+    "badge": "Our Process",
+    "title": "Our Story & Process",
+    "subtitle": "From our kitchen to your table.",
+    "steps": {
+      "step1": { "number": "01", "title": "Fresh Sourcing", "desc": "We select only the best local ingredients each morning." },
+      "step2": { "number": "02", "title": "Careful Prep", "desc": "Traditional preparation techniques meeting modern hygiene standards." },
+      "step3": { "number": "03", "title": "Made to Order", "desc": "Cooked fresh right after your order is confirmed." },
+      "step4": { "number": "04", "title": "Prompt Service", "desc": "Served hot in-house or delivered directly to your doorstep." }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "intro": "Everything you need to know about our ingredients, ordering, and service.",
+      "items": [
+        { "q": "Is everything made fresh to order?", "a": "Yes - every dish and drink is prepared fresh when you order. We never pre-cook or reheat." },
+        { "q": "Do you offer delivery?", "a": "Yes, we deliver within Addis Ababa. Free delivery on qualifying orders." },
+        { "q": "Can I customise my order?", "a": "Absolutely. Add preferences in the order notes and we will do our best to accommodate." },
+        { "q": "What payment methods do you accept?", "a": "We accept cash, Telebirr, CBE Birr, and bank transfers. Card payment coming soon." }
+      ]
+    }
+  },
+  "order": {
+    "confirmed": "Order Confirmed!",
+    "number": "Order #",
+    "track": "Track Order",
+    "thankYou": "Thank You!"
+  },
+  "footer": {
+    "tagline": "Fresh food, real flavour - made to order in Addis Ababa.",
+    "promise": "Freshly prepared every day with pride and hospitality.",
+    "links": {
+      "title": "Quick Links",
+      "shop": "Menu",
+      "howItsMade": "Our Story",
+      "about": "About Us"
+    },
+    "contact": {
+      "title": "Contact Us"
+    },
+    "legal": {
+      "rights": "© {year} Entoto Haven. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "rooms": {
+    "title": "Rooms & Halls",
+    "subtitle": "Comfortable rooms for every budget, and meeting halls for up to 250 people.",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "guests": "Guests",
+    "search": "Check availability",
+    "roomsHeading": "Rooms",
+    "hallsHeading": "Meeting halls",
+    "perNight": "/ night",
+    "perGuestNight": "/ guest / night",
+    "perDay": "/ day",
+    "bed": "{width} m bed",
+    "people": "{min}–{max} people",
+    "available": "{count} available",
+    "soldOut": "Not available for these dates",
+    "total": "Total: {amount} ETB",
+    "invalidDates": "Check-out must be after check-in.",
+    "hallDays": "Halls are priced per day, from the check-in day up to the day before check-out.",
+    "callToBook": "To book, call us or visit the front desk:",
+    "request": "Request booking",
+    "name": "Full name",
+    "phone": "Phone",
+    "send": "Send request",
+    "sending": "Sending…",
+    "sent": "Request sent! We will call you to confirm.",
+    "failed": "Could not send the request. Please call us.",
+    "unavailable": "Room information is not available right now."
+  }
+}

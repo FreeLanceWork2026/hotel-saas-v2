@@ -1,0 +1,8 @@
+{
+  "name": "Entoto Haven",
+  "description": "Hotel and restaurant management SaaS and customer ordering portal.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

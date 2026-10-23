@@ -1,0 +1,337 @@
+/* ============================================================
+   Admin Dashboard — Dark Premium Cards
+   ============================================================ */
+
+/* ── Page Header ─────────────────────────────────────────── */
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--a-text);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.pageSubtitle {
+  font-size: 0.875rem;
+  color: var(--a-muted-2);
+}
+
+/* ── Stat Grid ───────────────────────────────────────────── */
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.statCard {
+  background-color: var(--a-card);
+  border: 1px solid var(--a-line);
+  border-radius: 14px;
+  padding: 1.375rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  background: radial-gradient(ellipse at top left, rgba(200, 137, 30, 0.06), transparent 60%);
+}
+
+.statCard:hover {
+  border-color: rgba(200, 137, 30, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.statCard:hover::before {
+  opacity: 1;
+}
+
+.statTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.statIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Card accent colors */
+.statCard.orange .statIconWrap { background-color: rgba(200, 137, 30, 0.12); }
+.statCard.green  .statIconWrap { background-color: rgba(61, 122, 82, 0.15); }
+.statCard.amber  .statIconWrap { background-color: rgba(217, 119, 6, 0.12); }
+.statCard.purple .statIconWrap { background-color: rgba(124, 58, 237, 0.12); }
+.statCard.blue   .statIconWrap { background-color: rgba(59, 130, 246, 0.12); }
+
+.statCard.orange .statIcon { color: var(--a-gold); }
+.statCard.green  .statIcon { color: var(--a-green); }
+.statCard.amber  .statIcon { color: var(--a-amber); }
+.statCard.purple .statIcon { color: var(--a-violet); }
+.statCard.blue   .statIcon { color: var(--a-blue); }
+
+.statTrend {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.statTrendUp {
+  background-color: rgba(61, 122, 82, 0.15);
+  color: var(--a-green);
+}
+
+.statTrendDown {
+  background-color: rgba(196, 58, 58, 0.12);
+  color: var(--a-red);
+}
+
+.statTrendNeutral {
+  background-color: rgba(100, 100, 100, 0.12);
+  color: var(--a-muted-2);
+}
+
+.statBottom {}
+
+.statLabel {
+  font-size: 0.8125rem;
+  color: var(--a-muted-2);
+  font-weight: 500;
+  margin-bottom: 0.375rem;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--a-text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statSub {
+  font-size: 0.75rem;
+  color: var(--a-dim);
+  margin-top: 0.375rem;
+}
+
+/* ── Two-column lower section ─────────────────────────────── */
+.lowerGrid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .lowerGrid { grid-template-columns: 1fr; }
+}
+
+/* ── Admin Panel Cards ───────────────────────────────────── */
+.panel {
+  background-color: var(--a-card);
+  border: 1px solid var(--a-line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--a-line);
+}
+
+.panelTitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--a-text-2);
+}
+
+.panelLink {
+  font-size: 0.8125rem;
+  color: var(--a-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 150ms;
+}
+
+.panelLink:hover {
+  color: var(--a-gold);
+}
+
+.panelBody {
+  padding: 1.25rem 1.5rem;
+}
+
+/* ── Orders Table ────────────────────────────────────────── */
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ordersTable th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--a-dim);
+  padding: 0 0 0.75rem;
+  border-bottom: 1px solid var(--a-line);
+}
+
+.ordersTable td {
+  padding: 0.875rem 0;
+  font-size: 0.875rem;
+  color: var(--a-text-3);
+  border-bottom: 1px solid var(--a-line-soft);
+  vertical-align: middle;
+}
+
+.ordersTable tr:last-child td {
+  border-bottom: none;
+}
+
+.orderNum {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8125rem;
+  color: var(--a-gold);
+  font-weight: 600;
+}
+
+.orderCustomer {
+  font-weight: 500;
+  color: var(--a-text-2);
+}
+
+.orderTotal {
+  font-weight: 600;
+  color: var(--a-text);
+}
+
+/* ── Status Badges ───────────────────────────────────────── */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.statusPending   { background: rgba(217, 119, 6, 0.12);  color: var(--a-amber); }
+.statusReview    { background: rgba(59, 130, 246, 0.12); color: var(--a-blue); }
+.statusConfirmed { background: rgba(61, 122, 82, 0.15);  color: var(--a-green); }
+.statusPreparing { background: rgba(124, 58, 237, 0.12); color: var(--a-violet); }
+.statusPacking   { background: rgba(168, 85, 247, 0.12); color: var(--a-purple); }
+.statusOnRoute   { background: rgba(200, 137, 30, 0.12); color: var(--a-gold); }
+.statusPickup    { background: rgba(14, 165, 233, 0.12); color: var(--a-sky); }
+.statusDelivered { background: rgba(34, 197, 94, 0.12);  color: var(--a-green2); }
+.statusCancelled { background: rgba(196, 58, 58, 0.1);   color: var(--a-red); }
+
+/* ── Quick Actions ───────────────────────────────────────── */
+.quickGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.quickBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.375rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--a-surface);
+  border: 1px solid var(--a-line);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 180ms ease, background-color 180ms ease;
+  font-family: inherit;
+}
+
+.quickBtn:hover {
+  border-color: rgba(200, 137, 30, 0.3);
+  background-color: rgba(200, 137, 30, 0.04);
+}
+
+.quickBtnIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quickBtnLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--a-text-2);
+}
+
+.quickBtnSub {
+  font-size: 0.6875rem;
+  color: var(--a-dim);
+}
+
+/* ── Empty State ─────────────────────────────────────────── */
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  color: var(--a-dim);
+  font-size: 0.875rem;
+}
+
+/* ── Low Stock Items ─────────────────────────────────────── */
+.stockItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--a-line-soft);
+}
+
+.stockItem:last-child { border-bottom: none; }
+
+.stockName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--a-text-2);
+}
+
+.stockQty {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.stockQtyLow { color: var(--a-red); }
+.stockQtyOk  { color: var(--a-green); }
+
+@media (max-width: 640px) {
+  .statGrid { grid-template-columns: repeat(2, 1fr); }
+  .statValue { font-size: 1.4rem; }
+}

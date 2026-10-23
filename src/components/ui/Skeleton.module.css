@@ -1,0 +1,128 @@
+/* ============================================================
+   Skeleton Shimmer — Dark admin theme
+   ============================================================ */
+
+/* Base shimmer */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--a-surface) 25%,
+    var(--a-hover, rgba(255,255,255,0.04)) 50%,
+    var(--a-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.mt {
+  margin-top: 6px;
+}
+
+/* ── Page wrapper ─────────────────────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  animation: fade-in 200ms ease both;
+}
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Header row ──────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── Stats row ───────────────────────────────────────── */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.statCard {
+  background: var(--a-surface);
+  border: 1px solid var(--a-line);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+/* ── Metrics row (dashboard) ─────────────────────────── */
+.metricsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.metricCard {
+  background: var(--a-surface);
+  border: 1px solid var(--a-line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Table card ──────────────────────────────────────── */
+.tableCard {
+  background: var(--a-surface);
+  border: 1px solid var(--a-line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--a-line);
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--a-line-soft);
+  animation: fade-in 300ms ease both;
+}
+
+.rowLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .statsRow,
+  .metricsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .statsRow,
+  .metricsRow {
+    grid-template-columns: 1fr;
+  }
+}

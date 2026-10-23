@@ -1,0 +1,299 @@
+/* Products page — list, filters, add/edit sheet.  Uses the admin --a-* tokens. */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.spin { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.muted { color: var(--a-faint); }
+.sub { font-size: 0.75rem; color: var(--a-dim); margin-top: 2px; }
+.price { font-weight: 700; color: var(--a-gold); }
+
+/* ── banner ── */
+.banner {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  background: rgba(217, 119, 6, 0.1);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  color: var(--a-amber);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+.banner svg { flex-shrink: 0; margin-top: 3px; }
+.banner code { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+
+/* ── toolbar ── */
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--a-line);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 0 0.8rem;
+  background: var(--a-bg);
+  border: 1px solid var(--a-line);
+  border-radius: 8px;
+  color: var(--a-dim);
+}
+.search:focus-within { border-color: #c8891e; box-shadow: 0 0 0 3px rgba(200, 137, 30, 0.12); }
+.search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.62rem 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--a-text);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.chips { display: flex; gap: 0.4rem; overflow-x: auto; max-width: 100%; padding-bottom: 2px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--a-line);
+  background: var(--a-surface);
+  color: var(--a-muted);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chip span { font-size: 0.72rem; color: var(--a-dim); }
+.chipOn { border-color: rgba(200, 137, 30, 0.5); color: var(--a-gold); background: rgba(200, 137, 30, 0.08); }
+
+/* ── rows ── */
+.prodCell { display: flex; align-items: center; gap: 0.75rem; }
+.thumb { border-radius: 10px; object-fit: cover; background: var(--a-surface); border: 1px solid var(--a-line); flex-shrink: 0; }
+.thumbEmpty {
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--a-surface);
+  border: 1px dashed var(--a-line);
+  color: var(--a-faint);
+  flex-shrink: 0;
+}
+.rowActions { display: flex; gap: 0.4rem; justify-content: flex-end; }
+.rowActions > *, .pcardActions > * {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem 1rem;
+  color: var(--a-dim);
+  text-align: center;
+}
+
+/* ── mobile cards ── */
+.cards { list-style: none; margin: 0; padding: 0; display: none; }
+.pcard { padding: 0.8rem 1rem; border-bottom: 1px solid var(--a-line-soft); }
+.pcard:last-child { border-bottom: none; }
+.pcardMain {
+  display: flex;
+  gap: 0.8rem;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.pcardBody { min-width: 0; flex: 1; }
+.pcardMeta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.4rem; }
+.pcardActions { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+
+@media (max-width: 820px) {
+  .desktopOnly { display: none; }
+  .cards.mobileOnly { display: block; }
+  .toolbar { padding: 0.75rem; }
+}
+
+/* ── add / edit sheet ── */
+.sheetRoot { position: fixed; inset: 0; z-index: 200; display: flex; justify-content: flex-end; }
+.sheetBackdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); border: none; cursor: pointer; backdrop-filter: blur(2px); }
+.sheet {
+  position: relative;
+  width: min(520px, 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--a-card);
+  border-left: 1px solid var(--a-line);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.35);
+  animation: slideIn 220ms ease;
+}
+@keyframes slideIn { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.sheetHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--a-line);
+}
+.sheetHead h2 { font-size: 1.05rem; font-weight: 700; color: var(--a-text); margin: 0; }
+.sheetClose {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  border-radius: 8px; border: 1px solid var(--a-line); background: var(--a-surface);
+  color: var(--a-muted); cursor: pointer;
+}
+
+.sheetBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overscroll-behavior: contain;
+}
+
+.photoRow { display: flex; gap: 1rem; align-items: flex-start; }
+.photoBox {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px dashed var(--a-line);
+  background: var(--a-bg);
+  color: var(--a-faint);
+  overflow: hidden;
+}
+.photoBox img { width: 100%; height: 100%; object-fit: cover; }
+.photoBusy { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0, 0, 0, 0.5); color: #fff; }
+.photoBtns { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.photoBtns > button { display: inline-flex; align-items: center; gap: 0.4rem; }
+.photoBtns > p { flex-basis: 100%; margin: 0; }
+
+.row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; }
+.inline { display: flex; gap: 0.5rem; }
+.inline input { flex: 1; min-width: 0; }
+.inline button { display: inline-flex; align-items: center; gap: 0.35rem; flex-shrink: 0; }
+
+.sheetFoot {
+  position: sticky;
+  bottom: -1.25rem;
+  margin: 0.5rem -1.25rem -1.25rem;
+  padding: 0.9rem 1.25rem calc(0.9rem + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  background: var(--a-card);
+  border-top: 1px solid var(--a-line);
+}
+.saveBtn {
+  display: inline-flex; align-items: center; gap: 0.4rem; justify-content: center;
+  padding: 0.7rem 1.4rem; border-radius: 8px; border: none;
+  background: linear-gradient(135deg, #c8891e 0%, #a86d14 100%);
+  color: #fff; font: inherit; font-weight: 600; font-size: 0.9rem; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(200, 137, 30, 0.3);
+}
+.saveBtn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+@media (max-width: 640px) {
+  .sheet { width: 100%; border-left: none; animation: none; }
+  .photoRow { flex-direction: column; }
+  .photoBox { width: 100%; height: 180px; }
+  .sheetFoot > * { flex: 1; }
+}
+
+/* ── Extra images grid ── */
+.extraImagesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.extraThumb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--a-border);
+  background: var(--a-surface-2);
+  flex-shrink: 0;
+}
+
+.extraThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.extraRemove {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0;
+  transition: background 0.15s;
+}
+.extraRemove:hover { background: rgba(220,50,50,0.85); }
+
+.extraAdd {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px dashed var(--a-border);
+  background: var(--a-surface-2);
+  color: var(--a-muted-2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  transition: border-color 0.15s, color 0.15s;
+}
+.extraAdd:hover:not(:disabled) { border-color: var(--a-brand); color: var(--a-brand); }
+.extraAdd:disabled { opacity: 0.5; cursor: not-allowed; }
+

@@ -1,0 +1,223 @@
+.wrap {
+  position: relative;
+}
+
+.skeleton {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-bg-muted);
+  animation: pulse-skel 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse-skel {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ── Signed-out pill ─────────────────────────────────────── */
+.signIn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-brand-500);
+  color: var(--color-brand-400);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.signIn:hover {
+  background: var(--color-brand-500);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── Avatar button ───────────────────────────────────────── */
+.avatarBtn {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-brand-500);
+  background: linear-gradient(135deg, var(--color-brand-500), var(--color-brand-400));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.avatarBtn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 4px rgba(200, 137, 30, 0.18);
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatarInitials {
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.onlineDot {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #34d399;
+  border: 2px solid var(--color-bg);
+}
+
+/* ── Dropdown ────────────────────────────────────────────── */
+.menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 270px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-bg-border);
+  border-radius: var(--radius-lg, 14px);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  z-index: 300;
+  animation: scale-in 0.15s var(--ease-smooth);
+  transform-origin: top right;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 12px;
+}
+
+.headerAvatar {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-brand-500), var(--color-brand-400));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.email {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.roleBadge {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(200, 137, 30, 0.12);
+  color: var(--color-brand-400);
+}
+
+.role_admin {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+}
+
+.role_employee,
+.role_kiosk_operator {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-bg-border);
+  margin: 4px 2px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.item:hover {
+  background: var(--color-bg-muted);
+  color: var(--color-text);
+}
+
+.item:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+}
+
+.spin {
+  animation: spin-anim 0.8s linear infinite;
+}
+
+@keyframes spin-anim {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .signIn span { display: none; }
+  .signIn { padding: 8px 10px; }
+  .menu { width: min(270px, calc(100vw - 24px)); }
+}

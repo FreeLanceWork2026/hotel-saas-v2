@@ -1,0 +1,358 @@
+/* ============================================================
+   Login Page — Dark premium design matching admin system
+   ============================================================ */
+
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0a0806;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radial glow behind card */
+.glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 137, 30, 0.07) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+/* ── Card ───────────────────────────────────────────────── */
+.card {
+  background: #1a1610;
+  border: 1px solid #2e2618;
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(200,137,30,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  animation: card-in 400ms cubic-bezier(0.34, 1.2, 0.64, 1) both;
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Logo ───────────────────────────────────────────────── */
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logoIcon {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.logoName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f0ead8;
+  letter-spacing: -0.01em;
+}
+
+.logoSub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #c8891e;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.divider {
+  height: 1px;
+  background: #2e2618;
+  margin: -0.5rem 0;
+}
+
+/* ── Heading ────────────────────────────────────────────── */
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #f0ead8;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #7d6f5a;
+}
+
+/* ── Error alert ────────────────────────────────────────── */
+.errorAlert {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background: rgba(224, 82, 82, 0.08);
+  border: 1px solid rgba(224, 82, 82, 0.25);
+  font-size: 0.875rem;
+  color: #e05252;
+  animation: shake 300ms ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-4px); }
+  75%       { transform: translateX(4px); }
+}
+
+.errorIcon { flex-shrink: 0; }
+
+/* ── Form ───────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #9a8d78;
+  letter-spacing: 0.01em;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  color: #5e5141;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8125rem 1rem 0.8125rem 2.75rem;
+  background: #0f0d0a;
+  border: 1px solid #2e2618;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  color: #f0ead8;
+  font-family: inherit;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.input::placeholder { color: #3f3628; }
+
+.input:focus {
+  outline: none;
+  border-color: #c8891e;
+  box-shadow: 0 0 0 3px rgba(200, 137, 30, 0.12);
+}
+
+/* Password field with eye button — needs extra right padding */
+.inputWithEye {
+  padding-right: 3rem;
+}
+
+/* Eye toggle button */
+.eyeBtn {
+  position: absolute;
+  right: 0.875rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5e5141;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 160ms ease;
+  line-height: 1;
+}
+
+.eyeBtn:hover {
+  color: #c8891e;
+}
+
+/* ── Submit button ──────────────────────────────────────── */
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.9375rem;
+  background: linear-gradient(135deg, #c8891e 0%, #a86d14 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  transition: opacity 200ms ease, transform 150ms ease, box-shadow 200ms ease;
+  box-shadow: 0 4px 16px rgba(200, 137, 30, 0.3);
+  letter-spacing: 0.01em;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(200, 137, 30, 0.45);
+}
+
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Auth in-progress overlay ───────────────────────────── */
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: rgba(10, 8, 6, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  animation: fade-in 200ms ease;
+}
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.loadingDots {
+  display: flex;
+  gap: 8px;
+}
+
+.loadingDots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c8891e;
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.loadingDots span:nth-child(2) { animation-delay: 0.2s; }
+.loadingDots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40%           { transform: translateY(-10px); opacity: 1; }
+}
+
+.loadingText {
+  font-size: 0.875rem;
+  color: #9a8d78;
+  font-weight: 500;
+}
+
+/* ── Footer note ────────────────────────────────────────── */
+.footerNote {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: #3f3628;
+  letter-spacing: 0.03em;
+}
+
+/* ── Google OAuth button ─────────────────────────────────── */
+.googleBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: #1a1612;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+  letter-spacing: 0.01em;
+}
+
+.googleBtn:hover:not(:disabled) {
+  background: #f5f5f5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.googleBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.googleBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── "or sign in with email" divider ────────────────────── */
+.orDivider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.orLine {
+  flex: 1;
+  height: 1px;
+  background: #2e2618;
+}
+
+.orText {
+  font-size: 0.75rem;
+  color: #5e5141;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}

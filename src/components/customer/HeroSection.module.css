@@ -1,0 +1,122 @@
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  --color-text: #fdf8f0;
+  --color-text-muted: #d4c5b0;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(10, 8, 5, 0.93) 0%,
+      rgba(10, 8, 5, 0.70) 55%,
+      rgba(10, 8, 5, 0.35) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(180, 60, 20, 0.30) 0%,
+      transparent 50%
+    );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding-top: calc(var(--nav-height) + var(--space-3xl));
+  padding-bottom: var(--space-4xl);
+  max-width: 720px;
+}
+
+.badge {
+  margin-bottom: var(--space-xl);
+}
+
+.title {
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.title span {
+  color: var(--color-brand-400);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  max-width: 540px;
+  margin-bottom: var(--space-2xl);
+  line-height: 1.7;
+}
+
+.ctas {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2xl);
+}
+
+.freshBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.freshDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-green-400);
+  box-shadow: 0 0 8px rgba(90, 158, 111, 0.8);
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--color-brand-500));
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding-top: calc(var(--nav-height) + var(--space-2xl));
+  }
+  .ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

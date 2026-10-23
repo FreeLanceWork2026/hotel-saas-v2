@@ -1,0 +1,175 @@
+/* Reports page layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* KPI row */
+.kpiRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .kpiRow { grid-template-columns: repeat(2, 1fr); }
+}
+
+.kpiCard {
+  background: var(--a-card);
+  border: 1px solid var(--a-line);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.kpiLabel {
+  font-size: 0.8125rem;
+  color: var(--a-muted-2);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.kpiValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--a-text);
+  line-height: 1;
+}
+
+.kpiSub {
+  font-size: 0.75rem;
+  color: var(--a-dim);
+  margin-top: 0.375rem;
+}
+
+/* Panels */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .grid2 { grid-template-columns: 1fr; }
+}
+
+/* Revenue bars */
+.barList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.barRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.barLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+}
+
+.barDate { color: var(--a-muted); font-weight: 500; }
+.barAmt  { color: var(--a-gold); font-weight: 700; }
+
+.barTrack {
+  height: 6px;
+  background: var(--a-line-soft);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, #c8891e, var(--a-gold));
+  border-radius: 9999px;
+  transition: width 0.6s ease;
+}
+
+/* Top products table */
+.productRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--a-line-soft);
+  gap: 1rem;
+}
+
+.productRow:last-child { border-bottom: none; }
+
+.productRank {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--a-raised);
+  color: var(--a-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.productName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--a-text);
+  flex: 1;
+}
+
+.productMeta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.productUnits {
+  font-size: 0.8125rem;
+  color: var(--a-muted-2);
+}
+
+.productRev {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--a-gold);
+}
+
+/* Status breakdown */
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.statusCell {
+  background: var(--a-surface);
+  border-radius: 0.625rem;
+  padding: 0.875rem;
+  text-align: center;
+}
+
+.statusCount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--a-text);
+}
+
+.statusLabel {
+  font-size: 0.75rem;
+  color: var(--a-muted-2);
+  margin-top: 0.2rem;
+}
+
+.empty {
+  color: var(--a-dim);
+  font-style: italic;
+  font-size: 0.875rem;
+  padding: 1rem 0;
+  text-align: center;
+}

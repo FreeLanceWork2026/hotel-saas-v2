@@ -1,0 +1,33 @@
+/* FeaturedProducts — client subcomponent styles */
+
+.grid {
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--color-brand-500);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 32px rgba(200, 137, 30, 0.4);
+  z-index: 300;
+  opacity: 0;
+  transition: transform 300ms var(--ease-smooth), opacity 300ms var(--ease-smooth);
+  pointer-events: none;
+}
+
+.toastVisible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
